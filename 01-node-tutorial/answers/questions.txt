@@ -1,0 +1,1 @@
+I don't see the difference between calling 'npm start' to access the app vs. nodemon myApp.js. So, what's the difference when both can access the app.? 
