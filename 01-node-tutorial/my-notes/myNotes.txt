@@ -96,3 +96,18 @@ And: What the heck is the event loop anyway? | Philip Roberts
 More resources for EVENT LOOP see: course-api.com
 
 // async await - await waits until the promise is resolved, then is execute the code. When using await you want to wrap it in a try, catch block. If something goes wrong this will give us a little control over it.
+
+// Event-Driven Programming - is used heavily in Node.js. Basically we listen for specific events and registered functions that execute in response to those events. So once once our event take place the call back function fires.
+
+// See nodejs.org - Node.js v14.15.5 Documentation and scroll down to HTTP. Then scroll down to Class:http.Server for a look at some classes. 
+
+// STREAMS - are used to read or write sequentially. When we have to and handle and manipulate streaming data, for ex. continuous source or a big file streams come in real handy.
+// in node there are four types of streams:
+ 1. Writeable use to write data sequentially
+ 2. Readable use to read data sequentially
+ 3. Duplex used to both read and write data sequentially
+ 4. Transform used to where data can be modified when writing or reading.
+ // streams extends event emitter's class which mean we can event like data on streams.
+// When sync or async approach what happens is we are reading the whole file. If we have a big file first we are using a lot of memory and second we are as the file size gets bigger and bigger eventually the variable is not going to be big enough. You will get an error.
+// A solution would be read stream option.
+// Go to the Node.js docs and scroll down to fs.ReadStream
