@@ -1,5 +1,3 @@
-// myApp
-
 // A better solution would be to setup a promise and use await
 const {readFile, writeFile} = require('fs').promises;
 // const util = require('util')

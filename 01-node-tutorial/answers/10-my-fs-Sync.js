@@ -12,13 +12,13 @@ console.log('start');
 
 // If one of the users does this task or both tasks readFileSync(), writeFileSync. And they take a long time this means node will not be able to serve other users. JS in reading this code synchronously meaning it just goes line-by-line.
 // If the is something that takes a long time your application is down. So no other user can do anything with that application. Because one of the users are for example reading the files and writing one.
-const first = readFileSync('../content/first.txt','utf-8')
-const second = readFileSync('../content/second.txt','utf-8')
+const first = readFileSync('./content/first.txt','utf-8')
+const second = readFileSync('./content/second.txt','utf-8')
 
 // If file is not here node will create one. If the file is already there by default node will override all the values that are in the file.
 // { flag: 'a'} creates a new value.
 writeFileSync(
-    '../content/results-sync.txt',
+    './content/results-sync.txt',
      `Here is the result : ${first}, ${second}`,
      { flag: 'a' }
  )

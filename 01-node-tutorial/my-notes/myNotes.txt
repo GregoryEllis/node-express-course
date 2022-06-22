@@ -70,6 +70,29 @@ When it comes to npm packages it is a good chance that if there is a bug someone
 
 // Sometimes installing a package globally can introduce bugs so local is the best way to go.
 
-// npx stands for execute.
+// npx stands for execute. The offical name is the package runner.
+
+
+// Why do we need package-lock.json?
+// If we take a look at the dependencies they have a verison. Some of the dependencies have dependencies on their own and we must keep in mind that these dependencies have verisons as well.
+For example, a person who gets your projoct you probably want them to have the same exact setup, b/c keep in mind as these version change so does the mode of functionality. If not the project may get some bugs. 
+// This why you have package-lock.json you these specific verisons for all the packages not only for the dependencies but for the packages that the dependency is using.
+// When it comes to verison it has three values. Look at it as a contract between us, the people who is using it and the people who created it. 
+// The first number is a major change, the second number is a minor one and it is backward compatible. For ex. if have the version 4.17.20 and 17 changes to 18 we should not expect any breaking changes. And the last number is just a patch for a bug fix.
+// verison is something to keep in mind when publishing your own.
 
 // see The Basics of Package.json in Node.js and npm. It describes the basics of package.json.
+
+// If I want to learn more about the following: 
+EVENT LOOP, ASYNC PATTERNS, EVENTS EMITTER AND STREAMS
+do a more indepth research.
+
+// EVENT LOOP 
+* see nodejs.org or Google node js event loop then navigate to nodejs.dev
+* YouTube (event loop) Morning Keynote- Everything You Need to Know About Node.js Event Loop - Bert Belder, IBM
+Is what allows Node.js to perform non-blocking I/O (input/output) operations - despite the fact that JS is single-threaded - by offloading operations to the system kernel whenever possible.
+And: What the heck is the event loop anyway? | Philip Roberts
+
+More resources for EVENT LOOP see: course-api.com
+
+// async await - await waits until the promise is resolved, then is execute the code. When using await you want to wrap it in a try, catch block. If something goes wrong this will give us a little control over it.

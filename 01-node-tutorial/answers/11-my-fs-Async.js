@@ -11,13 +11,13 @@ console.log('start');
 // This way when user #1 for example comes here and want to get this functionality node will just off load this task. And, then your application can keep on serving other users.
 
 // An alternative approach would be to use promises and Async away
-readFile('../content/first.txt','utf8', (err, result) => {
+readFile('./content/first.txt','utf8', (err, result) => {
     if (err) {
         console.log(err)
         return
     }
     const first = result;
-    readFile('../content/second.txt','utf8',(err,) => {
+    readFile('./content/second.txt','utf8',(err,) => {
         
         // console.log(result)
         // Without using 'utf8' in the call back function <Buffer 48 65 6c 6c 6f 20 74 68 6f 20 74 68 69 73> is returned what does this mean? Is this a certain type of err? What is so special about the use of utf8? 
@@ -28,7 +28,7 @@ readFile('../content/first.txt','utf8', (err, result) => {
         }
         const second = result;
         writeFile(
-            '../content/result-async.txt',
+            './content/result-async.txt',
             `Here is the result : ${first}, ${second}`,
             (err, result)=> {
                 if (err) {

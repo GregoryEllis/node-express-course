@@ -1,5 +1,6 @@
 // Globals
 
+
 // GLOBALS  - NO WINDOW !!!!
 
 // __dirname  - path to current directory
@@ -7,6 +8,8 @@
 // require    - function to use modules (CommonJS)
 // module     - info about current module (file)
 // process    - info about env where the program is being executed
+// fs         - stands for file system
+// os         - stands for operating system  
 
 console.log(__dirname)
 // console.log(__filename)
