@@ -1,0 +1,53 @@
+// HOW WE EXCHANGE DATA ON THE WEB.
+ The user sends the HTTP request message and the server sends the HTTP response message. And that how we exchange data on the web.
+
+// A cloud is a bunch of servers connected together.
+
+// HTTP METHODS
+GET     Read Data
+POST    Insert Data
+PUT     Update Data
+DELETE  Delete Data
+
+GET:   www.store.com/api/orders        get all orders
+POST:  www.store.com/api/orders        place an order (send data)
+GET:   www.store.com/api/orders/:id    get single order (path params) 
+PUT:   www.store.com/api/orders/:id    update specific order (params + send data)
+DELETE:www.store.com/api/orders/:id    delete order (path params) 
+
+// REQUEST MESSAGE
+GET is the default action that the browser performs
+METHOD --> GET/contact(URL) HTTP/1.1
+HEADERS is a meta request
+Body(optional)
+
+// http status codes see HTTP response status codes - HTTP|MDN
+// MIME type see MDN
+
+Status Code: signals the result of the request. For ex. 200 means the request was successful and 400 means there was some kind of request error. 404 means the resource is not found. If the request was not authorized you get a 401 error.
+
+// RESPONSE MESSAGE
+// HEADERS is where we find info about our response message. It is a set-up of key/pairs.
+Content-Type: text/html; charset=UTF-8.This is where we are sending back the html also our second option is going to be sending back our data. So most of the time when we are communicating w/ the api we are getting back our json data,
+B/c over the web we are sending the string.
+// BODY is where the site/request is returned. 
+
+
+// Visit for complete notes on the above  https://www.course-api.com/slides/
+// See also course-api.com
+
+// The things covered in the above will not have to be added manually. The browser and the server will take care of it by default.
+// Somethings will have to be added on our own. This will info about our message.
+
+
+// EXPRESS is built on top of node and more specifically on top on http modules. So you can't use Express w/o node.
+
+// When it comes to Express or it http case API means setting up an http interface to interact with our data. 
+// Data is sent using json(Javascript Object Notation) 
+// Inorder to send back our response we are going to use res.json() method. Which will do all the heavy lifting. For ex. setting up the proper content type and stringfy our data.
+// This data is then sent to the browser.
+
+// expressjs.com see 4.x API don't look at express.json we will be using res.json
+
+// Query String parameters as known as URL parameters - This is away to send small amounts of info to the server using the URL.
+// These parameters allow you to search for specific info. 
