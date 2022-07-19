@@ -1,0 +1,17 @@
+In this lesson, you created a middleware function called asyncWrapper. Why?
+
+// The arguments of the asyncWrapper will be applied to the functions in the controllers/tasks.js file that are set equal to asyncWrapper . The middleware function returns a promise, and handles the arguments req, res, next. This middleware function is being imported from middleware/async.js the give it a more cleaner look which in turn will limit potential bugs and and increase readalble its also consider a convention to setup the a middleware such as this in this fashion.
+
+
+Suppose that you want to make sure that both a status code and and error message are send back to the user when they request the URL for a task that does not exist. Assume that you’ve created a CustomAPIError class and an error handler that references that class. Complete the code:
+
+const getTask = asyncWrapper(async (req, res, next) => {
+    const {id: taskID} = req.params
+    const task = await Task.findOne({ _id: taskID })
+    if (!task){
+        return next(createCustomError(`No task with id : ${taskID}`,404))
+    }
+    res.status(200).json({ task })
+})
+
+

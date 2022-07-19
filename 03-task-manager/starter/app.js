@@ -4,6 +4,8 @@ const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect')
 require('dotenv').config()
 const notFound = require('./middleware/not-found')
+const errorHandlerMiddleware = require('./middleware/error-handler')
+
 
 
 // middleware
@@ -24,8 +26,10 @@ app.use('/api/v1/tasks',tasks)
 // app.delete('/api/v1/tasks/:id')  - delete task
 
 app.use(notFound)
+app.use(errorHandlerMiddleware)
 
-const port = 3000
+// Set the environment to the variable of port or 3000 if there is nothing there. 
+const port = process.env.PORT || 3000
 
 // b/c connectDB returns a promise I can set the to async then we can use the await keyword.
 // whenever using async always use a try catch block that error can be handled.
