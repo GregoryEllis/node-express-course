@@ -1,0 +1,112 @@
+// QUESTIONS??????????
+
+// Why did I only have to use npm install to install the packages and not install them one by one?
+// How did the computer know which packages to install. 
+
+// THE REASON FOR THE FOLLOWING SETUP:
+// app.get('/api/v1/tasks')
+// This is just a convention
+// On the server we might also have different routes not just the route for the api. For example you could be serving an index page on a ('/') meaning it could be a index,html page that serving up and then also on the same server you have the api route.
+// So convention is to signal all these are api routes.
+// v1 will allow you to change the version to redirect user to a new version that you may have created.
+// If I have any questions about this setup view any web page to see their setup. If their setup makes sense use it in my setup if not find a site that makes the most since.
+// Try Hacker News
+
+// REST API
+GET         api/tasks       - Get All Tasks
+POST        api/tasks       - Create Task
+GET         api/tasks/:id   - Get Task
+PUT/PATCH   api/tasks/:id   - Update Task
+DELETE      api/tasks/:id   - Delete Task
+// This is a common order.
+// API is where we build an HTTP interface so other apps most likely frontend one can interact w/ our data.
+// REST stands for:
+// representational state transfer
+A REST API (also known as RESTful API) is an application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services. REST stands for representational state transfer and was created by computer scientist Roy Fielding.
+// REST determines what the api looks like.
+// Its a pattern not a strictly enforced set of rules.
+// Nothing stops you from setting up your own api in a totally different matter.
+// What pattern you use stick w/ it in other words be consistent. Otherwise its going to be very confusing for your users.
+
+// MongoDB
+// NoSQL, NON RELATIONAL DB 
+// Store JSON
+// Easy To Get Started
+// Free Cloud Hosting - ATLAS
+// The major difference between a non relational DB and relational data base is that unlike traditional data bases that has rows and columns in Mongo DB we can just store the data in JSON and basically it does not care how the data relates to each other. In stand of tables we have collections which represents groups of items and instead of rows we have documents which represent single items. A document is a set of key value pairs and as far as data types there are strings, booleans, numbers arrays, objects and many more.
+// Very easy to get start you can set it up on your local machine as well. But here we will go for cloud option.
+// Well use MongoDB atlas which is a offical option.
+
+// Crud stands for:
+// Create, Read, Update, Destory or Delete 
+
+// mongoose
+// To install: npm install mongoose
+
+// .env file
+// allows access to secert variables that contain sensitive info.
+// Use the .gitignore file to pervent the .env file and its sensitive info from being pushed up to github.
+// Whenever setting up a .env file immediately after setup a .gitignore file and place the .env file in it.
+
+////// START AT 1:14 of video. 
+You are careful to store your sensitive information in a .env file.
+How do you get your app to access the information in the .env file?
+How do you protect the contents of the .env file so that it is not stored in your github repository?
+
+// Schema
+is where you setup all document for your collections in MongoDB
+
+// Validation
+to learn more head to mongoose docs
+
+//// Finds documents.
+
+Mongoose casts the filter to match the model's schema before the command is sent. See our query casting tutorial for more information on how Mongoose casts filter.
+
+Examples:
+// find all documents
+await MyModel.find({});
+
+// find all documents named john and at least 18
+await MyModel.find({ name: 'john', age: { $gte: 18 } }).exec();
+
+// executes, passing results to callback
+MyModel.find({ name: 'john', age: { $gte: 18 }}, function (err, docs) {});
+
+// executes, name LIKE john and only selecting the "name" and "friends" fields
+await MyModel.find({ name: /john/i }, 'name friends').exec();
+
+// passing options
+await MyModel.find({ name: /john/i }, null, { skip: 10 }).exec();
+
+// PUT vs. PATCH
+They both are for updated the resource.
+// PUT is for updating the existing resource.
+// PATCH is for partial update.  
+// For a PUT example see video Project 1: Task Manager (2:24)
+
+//////////// QUESTIONS ????????????????????????
+Whenever I delete a task using postman I get an error. The task that I delete shows up in the postman console but in the terminal I get the following err: 
+node:internal/errors:465
+    ErrorCaptureStackTrace(err);
+    ^
+
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:372:5)
+    at ServerResponse.setHeader (node:_http_outgoing:576:11)
+    at ServerResponse.header (C:\Users\gelli\node-express-course\03-task-manager\starter\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\Users\gelli\node-express-course\03-task-manager\starter\node_modules\express\lib\response.js:174:12)
+    at deleteTask (C:\Users\gelli\node-express-course\03-task-manager\starter\controllers\tasks.js:53:9)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+////???? 
+Then when I navigate back to postman and press send to update 'Get All Tasks' I get the following error in the postman console:
+Could not send request
+Error: connect ECONNREFUSED 127.0.0.1:3000 View in Console.
+////???? 
+But when I stop and restart the server and then navigate but to postman and press Send the task has been deleteed from the 'Get All Tasks' list.
+////???? Why did I have to go thru this process.
+
+///////// QUESTION ?????????
+How can I test the app out from the front-end.
+

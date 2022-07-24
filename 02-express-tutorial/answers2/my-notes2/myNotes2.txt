@@ -33,8 +33,8 @@ B/c over the web we are sending the string.
 // BODY is where the site/request is returned. 
 
 
-// Visit for complete notes on the above  https://www.course-api.com/slides/
-// See also course-api.com
+//// Visit for complete notes on the above  https://www.course-api.com/slides/
+//// See also course-api.com
 
 // The things covered in the above will not have to be added manually. The browser and the server will take care of it by default.
 // Somethings will have to be added on our own. This will info about our message.
@@ -50,4 +50,8 @@ B/c over the web we are sending the string.
 // expressjs.com see 4.x API don't look at express.json we will be using res.json
 
 // Query String parameters as known as URL parameters - This is away to send small amounts of info to the server using the URL.
-// These parameters allow you to search for specific info. 
+// These parameters allow you to search for specific info.
+
+// MIDDLEWARE
+// EXPRESS MIDDLEWARE are functions that execute during the request to the server. Each middleware function has access to request and response objects and when it comes to functionality. 
+// Middleware is everywhere in EXPRESS. You can argure that Express is just a bunch of middleware functions.
