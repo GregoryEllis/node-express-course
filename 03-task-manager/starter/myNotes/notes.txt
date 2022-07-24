@@ -110,3 +110,27 @@ But when I stop and restart the server and then navigate but to postman and pres
 ///////// QUESTION ?????????
 How can I test the app out from the front-end.
 
+///////// QUESTION ?????????
+The different ways on how to access and update an error message using the code in the middleware/error-handler.js directory and also the code in the controllers/tasks.js van get kind of confusing at times.
+
+// To explicitly set the port value.
+ PORT=6000 node app.js
+
+
+
+ // When debugging
+
+ 1. When asked to think about debugging, what are the first 3   adjectives that jump to mind?
+
+Interpreting the console log message, Asking a question related to that message, generate and apply a possible solution.
+
+
+2. Are there any debugging practices that you’ve already tried and found helpful?
+
+Identifying the general area of the bug based on the console output. Then start breaking down the that block of code undstanding what each line of code is doing. Then apply console logs to the respective pieces of code. 
+
+
+3. Any you haven’t tried yet, but want to practice in this upcoming week?
+
+I can't think of any right now but I'm always looking for ways to improve my coding skills.
+
