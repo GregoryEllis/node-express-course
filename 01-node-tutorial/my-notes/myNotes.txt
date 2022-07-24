@@ -1,0 +1,113 @@
+Node Package Manager (npm): Allows us to do three things reuse our own code in other projects, Use code written by other developers, and lastly, share our own solutions with other developers.
+
+The npm is hosted at npmjs.com here you can find everything starting from utility functions to full blown frameworks and libraries.
+
+A typical node project will have more than one npm package installed as dependencies. 
+
+npm calls the reuseable code a package. 
+A package is a folder that contains a JS code.
+
+Other I'll hear are modules, and dependency.
+At the current point in the lesson (1:48) all three (reuseable code, modules, dependency) are use interchangeably when talking about shareable JS code. At the end of the day they all mean the same thing.
+
+There is not quality control in npm registry. Anyone can publish anything. So it will be up to me to determine switch packages are useful or not.
+
+A good indication of security and usefulness of the package is the amount of weekly downloads.
+
+When it comes to npm packages it is a good chance that if there is a bug someone else has already faced it. And as a result its already fixed in the package or its a working solution.
+
+// npm - global command, comes with node
+// npm --version
+
+// local dependency - use it only in this particular project
+// npm i <packageName>
+
+// global dependency - use it in any project
+// npm install -g <packageName>
+// sudo npm install -g <packageName> (mac)
+
+// package.json - manifest file (stores important info about project/package)
+// manual approach (create package.json in the root, create properties etc)
+// npm init (step by step, press enter to skip)
+// npm init -y (everything default)
+
+// Why do we need package.json? B/C if we want install the package via local package. Now the package will be stored as a dependency
+
+// lodash is a utility library - This is being used just for installation. There is no real reason why we need this for our project.
+
+// package.json allow you to share files without dragging the massive node folder with it. We can simply just share what our packages are using with package.json.
+
+// When get the repo we would just run npm install and the directory will have access to all the packages in the dependencies.
+
+// npm start allows you to run your app w/o having to explicitly typing out the file name.
+
+// nodemon - is going to watch our files and restart our app w/o having to typing node and whatever the file name we are in everytime in our terminal.
+
+// We can install nodemon as simple dependency.
+// But for this course we set it up as a devDependency. Why?
+// If you really think about it do we really need nodemon in production? No. When we push it up, we would use something more serious than nodemon to restart our app pm2 comes to mind. But while we are developering nodemon becomes an option.
+
+// What type of packages would we add to devdDependencies. Testing packages
+
+// So we use devDependencies while we are creating an app. And once its in production we just share the dependencies that the app is actually using. Not the ones we used while developing it.
+
+// To install devDependencies use: npm i nodemon -D or use: npm i nodemon --save-dev
+
+"scripts": {
+    "start": "node myApp.js",
+    "dev": "nodemon myApp.js"
+  },
+
+// To stop nodemon press Ctrl + c 
+
+// uninstall a package: npm uninstall then packageName.
+
+// The nuclear approach allows you to remove the whole node_modules folder.
+
+// The nuclear approach would be to delete the node_modules folder and the package-lock.json folder and remove the package from the dependencies in package.json then run: npm install this will set the node_modules back up from scratch.
+
+// Why would you want yo install nodemon globally? B/c now you can use nodemon anywhere in your app.
+
+// Sometimes installing a package globally can introduce bugs so local is the best way to go.
+
+// npx stands for execute. The offical name is the package runner.
+
+
+// Why do we need package-lock.json?
+// If we take a look at the dependencies they have a verison. Some of the dependencies have dependencies on their own and we must keep in mind that these dependencies have verisons as well.
+For example, a person who gets your projoct you probably want them to have the same exact setup, b/c keep in mind as these version change so does the mode of functionality. If not the project may get some bugs. 
+// This why you have package-lock.json you these specific verisons for all the packages not only for the dependencies but for the packages that the dependency is using.
+// When it comes to verison it has three values. Look at it as a contract between us, the people who is using it and the people who created it. 
+// The first number is a major change, the second number is a minor one and it is backward compatible. For ex. if have the version 4.17.20 and 17 changes to 18 we should not expect any breaking changes. And the last number is just a patch for a bug fix.
+// verison is something to keep in mind when publishing your own.
+
+// see The Basics of Package.json in Node.js and npm. It describes the basics of package.json.
+
+// If I want to learn more about the following: 
+EVENT LOOP, ASYNC PATTERNS, EVENTS EMITTER AND STREAMS
+do a more indepth research.
+
+// EVENT LOOP 
+* see nodejs.org or Google node js event loop then navigate to nodejs.dev
+* YouTube (event loop) Morning Keynote- Everything You Need to Know About Node.js Event Loop - Bert Belder, IBM
+Is what allows Node.js to perform non-blocking I/O (input/output) operations - despite the fact that JS is single-threaded - by offloading operations to the system kernel whenever possible.
+And: What the heck is the event loop anyway? | Philip Roberts
+
+More resources for EVENT LOOP see: course-api.com
+
+// async await - await waits until the promise is resolved, then is execute the code. When using await you want to wrap it in a try, catch block. If something goes wrong this will give us a little control over it.
+
+// Event-Driven Programming - is used heavily in Node.js. Basically we listen for specific events and registered functions that execute in response to those events. So once once our event take place the call back function fires.
+
+// See nodejs.org - Node.js v14.15.5 Documentation and scroll down to HTTP. Then scroll down to Class:http.Server for a look at some classes. 
+
+// STREAMS - are used to read or write sequentially. When we have to and handle and manipulate streaming data, for ex. continuous source or a big file streams come in real handy.
+// in node there are four types of streams:
+ 1. Writeable use to write data sequentially
+ 2. Readable use to read data sequentially
+ 3. Duplex used to both read and write data sequentially
+ 4. Transform used to where data can be modified when writing or reading.
+ // streams extends event emitter's class which mean we can event like data on streams.
+// When sync or async approach what happens is we are reading the whole file. If we have a big file first we are using a lot of memory and second we are as the file size gets bigger and bigger eventually the variable is not going to be big enough. You will get an error.
+// A solution would be read stream option.
+// Go to the Node.js docs and scroll down to fs.ReadStream

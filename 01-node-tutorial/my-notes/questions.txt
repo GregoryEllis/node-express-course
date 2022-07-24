@@ -1,0 +1,24 @@
+I don't see the difference between calling 'npm start' to access the app vs. nodemon myApp.js. So, what's the difference when both can access the app.? 
+
+// 1-event-loop-ex/ 1-read-file.js
+const { readFile, writeFile } = require('fs')
+
+console.log('started a first task')
+// CHECK FILE PATH!!!!
+readFile('../content/first.txt', 'utf8', (err, result) => {
+  if (err) {
+    console.log(err)
+    return
+  }
+  console.log(result)
+  console.log('completed first task')
+})
+console.log('starting next task')
+// The sync code with be ran first. The async callback function will be offloaded meaning it will move to the back of the line. It will be completed when the sync code is finished.
+// output
+started a first task
+starting next task
+Hello this is first text file
+completed first task
+
+// How is he able to get the home page, about page and the error page to display in difference tabs in localhost.
