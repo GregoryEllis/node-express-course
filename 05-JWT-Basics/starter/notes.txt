@@ -1,0 +1,14 @@
+//// JSON web tokens - restricts access to data
+// We don't want random people to have access to our data.
+// For the sake of simplicity look at JWT as long strings.
+// If we have to routes a Dashboard and a Login/Register route.Dashboard is protected so I can click all day and have no access to the data. Only if I login I get the token can I access the secret info stored in the dashboard.
+// Always remember if there is a valid token in the request the user can access specific info. Of course not all the info. You can only access the info that belongs to you. If that token is available you will be grantet access to that data.
+
+/////// Question ???????????????
+I need some clarity on what ../ means when it comes to folder or directories.
+
+// One of the features of HTTP is that it is stateless which means that the server does not know or does not remember any previous requests sent by the same client
+
+// Installation
+npm install http-status-codes --save
+see npm docs for Usage
